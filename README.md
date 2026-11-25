@@ -130,18 +130,3 @@ python src/forecast.py
 
 The revised script writes figures, metrics, row-level predictions, run configuration and model artifacts to `outputs_v2/`. The earlier script writes to `outputs/`.
 
-## Limitations
-
-- The ML models perform one-observation-ahead sequential predictions using previously observed rates, not autonomous long-term forecasts.
-- Lags are observation-based, not necessarily calendar-day intervals. Non-flowing days are excluded, and normalized flowing rate is not realized daily production volume.
-- The evaluation covers one well; the same test interval was examined during development, so the version comparison is exploratory rather than an independent final benchmark.
-- Operational interventions, reservoir pressure, choke settings and water cut are not model inputs. The analysis cannot establish the cause of production regime changes.
-- The reported R² is a regression metric, not a percentage accuracy.
-
-## Future work
-
-Independent multi-well evaluation, regime-aware decline analysis, operational feature integration and fixed-horizon forecasting.
-
-## Acknowledgements
-
-This project adapts a previously developed student production forecasting workflow with the original developer's permission. The adaptation includes portable execution, training-only decline fitting, persistence benchmarking, rate-change modelling, validation-based correction weights and expanded result visualization. Production data is sourced from Equinor's Volve data-sharing initiative.
